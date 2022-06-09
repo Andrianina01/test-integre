@@ -1,0 +1,35 @@
+#contact{
+    padding: 3.8194444444444446vw;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background: rgba(32, 32, 32, 0.82);
+    .titre{
+        h2{
+            color: #fff;
+        }
+        p{
+            color: #fff;
+        }
+    }
+    .form{
+        margin-top: 75px;
+    }
+    .form-control{
+       background: linear-gradient(0deg, #FFFFFF, #FFFFFF), linear-gradient(0deg, #FFFFFF, #FFFFFF), #FFFFFF;
+        opacity: 0.79;
+        border-radius: 4px;
+        margin-bottom: 21px;
+    }
+    img{
+        width: 100%;
+    }
+    .btn{
+        background: linear-gradient(93.29deg, #232D95 -2.38%, rgba(162, 74, 173, 0.45) 97.96%, rgba(50, 48, 152, 0.932292) 121.12%);
+        border: 1px solid rgba(123, 97, 255, 0.57);
+        padding: 10px 50px;
+        &:hover{
+             background: linear-gradient(-93.29deg, #232D95 -2.38%, rgba(162, 74, 173, 0.45) 97.96%, rgba(50, 48, 152, 0.932292) 121.12%);
+        }
+    }
+}
