@@ -11,6 +11,9 @@
 	  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <style>
+.scrollDist{
+	position: absolute;
+}
 </style>
 <body>
 <!-- <div class="loader">
@@ -42,9 +45,8 @@
 		</svg>
 	</div>
 </div> -->
-
-<div class="load" id="load">
-	<nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+<div class="scrollDist"></div>
+<nav class="navbar navbar-expand-lg bg-dark navbar-dark">
 		<div class="container">
 			 <!-- Brand -->
 		 <a class="navbar-brand" href="#">
@@ -70,13 +72,13 @@
 			   </ul>
 			 </li>
 			 <li class="nav-item">
-			   <a class="nav-link" href="#">SERVICES</a>
+			   <a class="nav-link" href="#" smooth="#section_3">SERVICES</a>
 			 </li>
 			 <li class="nav-item">
 			   <a class="nav-link" href="#">TECHNOLOGIES</a>
 			 </li>
 			 <li class="nav-item">
-			   <a class="nav-link" href="#">ACTUALITES</a>
+			   <a class="nav-link" href="#" smooth="#section_5">ACTUALITES</a>
 			 </li>
 		   </ul>
 		   <ul class="navbar-nav mr-0 navbar-left">
@@ -90,6 +92,8 @@
 		 </div>
 		</div>
 	   </nav>
+<div id="viewport">
+<div class="load" id="load">
 	   <header class="masthead" style="background-image: url(assets/image/banner.jpg)">
 			<div class="container bloc-text">
 				<div class="row" >
@@ -374,7 +378,9 @@ aucune place aux outrages malveillants.</p>
 	   
 
 </div>
-	
+</div>
+
+			
 
 <script src="assets/lib/jquery/jquery-3.6.0.js"></script>
 <script src="assets/lib/bootstrap/js/bootstrap.min.js"></script>
@@ -391,27 +397,64 @@ aucune place aux outrages malveillants.</p>
 <script src="assets/lib/gsap/TextPlugin.min.js"></script>
 <script src="assets/lib/gsap/PixiPlugin.min.js"></script>
 <script src="assets/lib/gsap/CustomEase.min.js"></script>
+<script src="assets/lib/gsap/scrollsmooth.js"></script>
 <script src="assets/js/custom.js"></script>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
   AOS.init();
+
 </script>
 <script>
     	$(document).ready(function(){
+    		smoothScroll("#load","#viewport", 2);
+/*let heightDoc = $(document).height() + 'px';
+gsap.set('.load', { position: 'fixed', background: '#fff', width: '100%', maxWidth: '100%', height: '100%', top: 0, left: '50%', x: '-50%' })
+gsap.set('.scrollDist', { width: '100%', height: '' })
+gsap.timeline({ scrollTrigger: { trigger: '.scrollDist', start: 'top top', end: 'bottom bottom', scrub: 2 } })
+.fromTo('.load', { y: 0 }, { y: '-467%'}, 0)*/
 
     		const showAnim = gsap.from('nav', { 
-  yPercent: -100,
-  paused: true,
-  duration: .8
-}).progress(1);
+			  yPercent: -100,
+			  paused: true,
+			  duration:0.3
+			}).progress(1);
 
 ScrollTrigger.create({
   start: "top top",
-  end: 99999,
+  end: "bottom bottom",
   onUpdate: (self) => {
     self.direction === -1 ? showAnim.play() : showAnim.reverse()
   }
 });
+
+
+$('a[smooth]').click(function(event){
+	let cible = $(this).attr('smooth');
+	let blocTop = $(cible).offset().top;
+	$('html,body').animate({
+		scrollTop: blocTop},2000);
+});
+
+
+
+
+
+
+
+
+var counts = [4, 9, 15, 6, 2],
+  goal = 16;
+
+var closest = counts.reduce(function(prev, curr) {
+
+  return (Math.abs(curr - goal) < Math.abs(prev - goal) ? curr : prev);
+
+});
+
+console.log(closest);
+
+
+
 
 // usage:
 // batch("section *", {
@@ -483,6 +526,21 @@ ScrollTrigger.create({
     }
 }
 smouthScroll();*/
+
+let tl = gsap.timeline({
+    // yes, we can add it to an entire timeline!
+    scrollTrigger: {
+      trigger: "#section_1",
+      pin: false,   // pin the trigger element while active
+      start: "-" + $(this).offset().top , // when the top of the trigger hits the top of the viewport
+      scrub: 3, // smooth scrubbing, takes 1 second to "catch up" to the scrollbar
+    }
+  });
+tl.addLabel("start")
+  .to("#section_1", {backgroundColor: "#28a92b"})
+  .addLabel("end");
+
+
 
     	})
     </script>
