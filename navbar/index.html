@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>METAWAYS</title>
+	 <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" type="text/css" href="assets/lib/bootstrap/css/bootstrap.min.css">
+      <link rel="stylesheet" type="text/css" href="assets/css/custom.css">
+	  <link rel="stylesheet" type="text/css" href="assets/lib/slick/slick-theme.css">
+	  <link rel="stylesheet" type="text/css" href="assets/lib/slick/slick.css">
+	  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<style>
+.scrollDist{
+	position: absolute;
+}
+</style>
+<body>
+<!-- <div class="loader">
+	<div class="pre_load">
+		<svg version="1.1" id="L6" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+		viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve">
+		<rect fill="none" stroke="#fff" stroke-width="4" x="25" y="25" width="50" height="50">
+		<animateTransform
+			attributeName="transform"
+			dur="0.5s"
+			from="0 50 50"
+			to="180 50 50"
+			type="rotate"
+			id="strokeBox"
+			attributeType="XML"
+			begin="rectBox.end"/>
+		</rect>
+		<rect x="27" y="27" fill="#fff" width="46" height="50">
+		<animate
+			attributeName="height"
+			dur="1.3s"
+			attributeType="XML"
+			from="50" 
+			to="0"
+			id="rectBox" 
+			fill="freeze"
+			begin="0s;strokeBox.end"/>
+		</rect>
+		</svg>
+	</div>
+</div> -->
+<div class="scrollDist"></div>
+<nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+		<div class="container">
+			 <!-- Brand -->
+		 <a class="navbar-brand" href="#">
+			 <img src="assets/image/logo.png" alt="">
+		 </a>
+   
+		 <!-- Toggler/collapsibe Button -->
+		 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+		   <span class="toggler-icon"></span>
+		   <span class="toggler-icon"></span>
+		   <span class="toggler-icon"></span>
+		 </button>
+   
+		 <!-- Navbar links -->
+		 <div class="collapse navbar-collapse" id="collapsibleNavbar">
+		   <ul class="navbar-nav text-center m-auto">
+			 <li class="nav-item nav-sous-item">
+			   <a class="nav-link" href="#">SOCIETE</a>
+			   <ul class="sous-item">
+			   		<li class="nav-item" ><a class="nav-link" href="">sous-1</a></li>
+			   		<li class="nav-item" ><a class="nav-link" href="">sous-1</a></li>
+			   		<li class="nav-item" ><a class="nav-link" href="">sous-1</a></li>
+			   </ul>
+			 </li>
+			 <li class="nav-item">
+			   <a class="nav-link" href="#" smooth="#section_3">SERVICES</a>
+			 </li>
+			 <li class="nav-item">
+			   <a class="nav-link" href="#">TECHNOLOGIES</a>
+			 </li>
+			 <li class="nav-item">
+			   <a class="nav-link" href="#" smooth="#section_5">ACTUALITES</a>
+			 </li>
+		   </ul>
+		   <ul class="navbar-nav mr-0 navbar-left">
+			 <li class="nav-item">
+			   <a class="btn btn-devis btn-default text-center" href="#">Demander un devis</a>
+			 </li>
+			  <li class="nav-item">
+			   <a class="nav-link" href="#">FR</a>
+			 </li>
+		   </ul>
+		 </div>
+		</div>
+	   </nav>
+
+
+			
+
+<script src="assets/lib/jquery/jquery-3.6.0.js"></script>
+<script src="assets/lib/bootstrap/js/bootstrap.min.js"></script>
+<script src="assets/lib/slick/slick.min.js"></script>
+<script src="assets/lib/gsap/gsap.min.js"></script>
+<script src="assets/lib/gsap/GSDevTools.min.js"></script>
+<script src="assets/lib/gsap/ScrollToPlugin.min.js"></script>
+<script src="assets/lib/gsap/ScrollTrigger.min.js"></script>
+<script src="assets/lib/gsap/CSSRulePlugin.min.js"></script>
+<script src="assets/lib/gsap/Draggable.min.js"></script>
+<script src="assets/lib/gsap/EaselPlugin.min.js"></script>
+<script src="assets/lib/gsap/Flip.min.js"></script>
+<script src="assets/lib/gsap/MotionPathPlugin.min.js"></script>
+<script src="assets/lib/gsap/TextPlugin.min.js"></script>
+<script src="assets/lib/gsap/PixiPlugin.min.js"></script>
+<script src="assets/lib/gsap/CustomEase.min.js"></script>
+<script src="assets/lib/gsap/scrollsmooth.js"></script>
+<script src="assets/js/custom.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init();
+
+</script>
+<script>
+    	$(document).ready(function(){
+    		smoothScroll("#load","#viewport", 2);
+/*let heightDoc = $(document).height() + 'px';
+gsap.set('.load', { position: 'fixed', background: '#fff', width: '100%', maxWidth: '100%', height: '100%', top: 0, left: '50%', x: '-50%' })
+gsap.set('.scrollDist', { width: '100%', height: '' })
+gsap.timeline({ scrollTrigger: { trigger: '.scrollDist', start: 'top top', end: 'bottom bottom', scrub: 2 } })
+.fromTo('.load', { y: 0 }, { y: '-467%'}, 0)*/
+
+    		const showAnim = gsap.from('nav', { 
+			  yPercent: -100,
+			  paused: true,
+			  duration:0.3
+			}).progress(1);
+
+ScrollTrigger.create({
+  start: "top top",
+  end: "bottom bottom",
+  onUpdate: (self) => {
+    self.direction === -1 ? showAnim.play() : showAnim.reverse()
+  }
+});
+
+
+$('a[smooth]').click(function(event){
+	let cible = $(this).attr('smooth');
+	let blocTop = $(cible).offset().top;
+	$('html,body').animate({
+		scrollTop: blocTop},2000);
+});
+
+
+
+
+
+
+var counts = [4, 9, 15, 6, 2],
+  goal = 16;
+
+var closest = counts.reduce(function(prev, curr) {
+
+  return (Math.abs(curr - goal) < Math.abs(prev - goal) ? curr : prev);
+
+});
+
+console.log(closest);
+
+
+
+
+// usage:
+// batch("section *", {
+//   interval: 0.1, // time window (in seconds) for batching to occur. The first callback that occurs (of its type) will start the timer, and when it elapses, any other similar callbacks for other targets will be batched into an array and fed to the callback. Default is 0.1
+//   batchMax: 3,   // maximum batch size (targets)
+//   onEnter: batch => gsap.to(batch, {autoAlpha: 1, stagger: 0.15, overwrite: true}),
+//   onLeave: batch => gsap.set(batch, {autoAlpha: 0, overwrite: true}),
+//   onEnterBack: batch => gsap.to(batch, {autoAlpha: 1, stagger: 0.15, overwrite: true}),
+//   onLeaveBack: batch => gsap.set(batch, {autoAlpha: 0, overwrite: true})
+//   // you can also define things like start, end, etc.
+// });
+
+
+
+
+// // the magical helper function (no longer necessary in GSAP 3.3.1 because it was added as ScrollTrigger.batch())...
+// function batch(targets, vars) {
+//   let varsCopy = {},
+//       interval = vars.interval || 0.1,
+//       proxyCallback = (type, callback) => {
+//         let batch = [],
+//             delay = gsap.delayedCall(interval, () => {callback(batch); batch.length = 0;}).pause();
+//         return self => {
+//           batch.length || delay.restart(true);
+//           batch.push(self.trigger);
+//           vars.batchMax && vars.batchMax <= batch.length && delay.progress(1);
+//         };
+//       },
+//       p;
+//   for (p in vars) {
+//     varsCopy[p] = (~p.indexOf("Enter") || ~p.indexOf("Leave")) ? proxyCallback(p, vars[p]) : vars[p];
+//   }
+//   gsap.utils.toArray(targets).forEach(target => {
+//     let config = {};
+//     for (p in varsCopy) {
+//       config[p] = varsCopy[p];
+//     }
+//     config.trigger = target;
+//     ScrollTrigger.create(config);
+//   });
+// }
+
+/*function smouthScroll() {
+    if (document.body.classList.contains('section')) {
+        return !1
+    } else {
+        var scrollContainer = document.getElementsByClassName('.load');
+        if (scrollContainer.length) {
+            var sContainer = document.querySelector("#load");
+            var sHeight;
+
+            function setHeight() {
+                sHeight = sContainer.clientHeight;
+                document.body.style.height = sHeight + "px"
+            }
+            ScrollTrigger.addEventListener("refreshInit", setHeight);
+            gsap.to(sContainer, {
+                y: () => -(sHeight - document.documentElement.clientHeight),
+                ease: "none",
+                scrollTrigger: {
+                    trigger: document.body,
+                    start: "top top",
+                    end: "bottom bottom",
+                    scrub: 1,
+                    invalidateOnRefresh: !0
+                }
+            })
+        }
+    }
+}
+smouthScroll();*/
+
+let tl = gsap.timeline({
+    // yes, we can add it to an entire timeline!
+    scrollTrigger: {
+      trigger: "#viewport",
+      pin: false,   // pin the trigger element while active
+      start: "top top" , // when the top of the trigger hits the top of the viewport
+      end: "500",
+      scrub: 1, // smooth scrubbing, takes 1 second to "catch up" to the scrollbar
+    }
+  });
+
+tl.to("#section_1", {background: "linear-gradient(to bottom,#fff,#232d95)"})
+
+
+
+    	})
+    </script>
+
+</body>
+</html>

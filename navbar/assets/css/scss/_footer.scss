@@ -1,0 +1,52 @@
+#footer{
+    background-color: #202020;
+    padding-top: 81px;
+    p{
+        color: #fff;
+    }
+    .link{
+        h2{
+            color: #fff;
+        } 
+        ul{
+            padding: 0;
+            li{
+                margin-top: 20px;
+                a{
+                    color: #fff;
+                    font-size: 15px;
+                    line-height: 18px;
+                }
+            }
+        }
+    }
+    article{
+        >img{
+            margin-bottom: 23px;
+        }
+        p{
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 28px;
+        }
+        .list-logo{
+            padding: 0;
+            li{
+                display: inline-block;
+            }
+        }
+    }
+}
+section.bas-page{
+    background: #232D95;
+    color: #fff;
+    padding: 22px;
+    .reseau_logo{
+        img{
+            margin-inline: 10px;
+        } 
+    }
+    p{
+        margin: 0;
+    }
+}

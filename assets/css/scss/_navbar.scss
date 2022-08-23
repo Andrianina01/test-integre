@@ -1,14 +1,14 @@
-.navbar{
+.navbar {
     z-index: 99;
     width: 100%;
     background-color: #232D95!important;
     min-height: 86px;
     position: fixed;
-    ul.m-auto{
-        .nav-item{
+    ul.m-auto {
+        .nav-item {
             margin-left: 51px;
             position: relative;
-            &:before{
+            &:before {
                 content: "";
                 position: absolute;
                 display: block;
@@ -19,107 +19,129 @@
                 background-color: #fff;
                 transition: .6s;
             }
-            &:hover:before{
+            &:hover:before {
                 left: 0;
                 width: 100%;
             }
         }
     }
-    .nav-link{
+    .nav-link {
         color: #fff!important;
-        @media (max-width:1600px){
-               margin-left:25px;
-            }
-            @media (max-width: 768px){
-
-}
+        @media (max-width: 1600px) {
+            margin-left: 25px;
+        }
+        @media (max-width: 768px) {}
     }
-    .btn-devis{
+    .btn-devis {
         display: flex;
         color: #fff;
         align-items: center;
         text-decoration: none;
         background: linear-gradient(93.29deg, #232D95 -2.38%, rgba(162, 74, 173, 0.45) 97.96%, rgba(50, 48, 152, 0.932292) 121.12%);
         transition: 0.8s;
-        &:hover{
+        &:hover {
             background: linear-gradient(-93.29deg, #232D95 -2.38%, rgba(162, 74, 173, 0.45) 97.96%, rgba(50, 48, 152, 0.932292) 121.12%);
         }
     }
-    .navbar-left{
-        .nav-link{
+    .navbar-left {
+        .nav-link {
             margin-left: 15px
         }
     }
 }
-.navbar-left{
+
+.navbar-left {
     width: 300px;
     justify-content: end;
-    @media (max-width:992px) {
+    @media (max-width: 992px) {
         width: 100%;
     }
 }
-.navbar-toggler{
+
+.navbar-toggler {
     width: 100px;
     display: flex;
     flex-direction: column;
     border: none;
-    .toggler-icon{
+    .toggler-icon {
         display: block;
         background-color: #fff;
         height: 2px;
-        margin:5px 0;
-        &:nth-child(1){
-         width: 100%;
+        margin: 5px 0;
+        &:nth-child(1) {
+            width: 100%;
         }
-        &:nth-child(2){
-         width: 75%;
-        margin-left: auto;
+        &:nth-child(2) {
+            width: 75%;
+            margin-left: auto;
         }
-        &:nth-child(3){
-         width: 50%;
-        margin-left: auto;
+        &:nth-child(3) {
+            width: 50%;
+            margin-left: auto;
+        }
+    }
+    &[aria-expanded="true"] {
+        .toggler-icon {
+            display: block;
+            background-color: #fff;
+            height: 2px;
+            margin: 0;
+            transition: .6s;
+            &:nth-child(1) {
+                width: 50%;
+                transform: rotate(40deg);
+                margin-left: auto;
+                margin-right: auto;
+            }
+            &:nth-child(2) {
+                width: 75%;
+                margin-left: auto;
+                opacity: 0;
+            }
+            &:nth-child(3) {
+                width: 50%;
+                transform: rotate(-40deg);
+                margin-left: auto;
+                margin-right: auto;
+            }
         }
     }
 }
+
 @media (max-width: 992px) {
-    
     .navbar-collapse {
         position: fixed;
         top: 0;
         left: 0;
-        padding-top: 50px; 
+        padding-top: 50px;
         padding-left: 15px;
         padding-right: 15px;
         padding-bottom: 15px;
-        width:50%;
+        width: 50%;
         height: 100%;
-        background-color: rgba(0,0,0,.8);
+        background-color: rgba(0, 0, 0, .8);
         z-index: 99;
-        .btn-membre{
+        .btn-membre {
             width: 100%;
             margin: auto;
             padding: 10px 10px;
         }
-        .nav-link{
+        .nav-link {
             margin-bottom: 15px;
             margin-left: 15px;
             font-family: 'roboto-bold';
             font-size: 18px;
         }
     }
-
     .navbar-collapse.collapsing {
         left: -75%;
         transition: height 0s ease;
     }
-
     .navbar-collapse.show {
         left: 0;
         transition: left 300ms ease-in-out;
     }
-
-    .navbar-toggler.collapsed ~ .navbar-collapse {
+    .navbar-toggler.collapsed~.navbar-collapse {
         transition: left 500ms ease-in-out;
     }
-    
 }
