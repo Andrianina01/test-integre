@@ -1,0 +1,53 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>BarbaJS legacy example</title>
+  </head>
+  <style type="text/css">
+    .loader {
+    position: fixed;
+    width: 100vw;
+    height: 200vh;
+    pointer-events: none;
+    background-color: #FFF6ED;
+    z-index: 1;
+    visibility: hidden;
+    opacity: 0;
+}
+.is-transitioning {
+    pointer-events: none;
+    cursor: progress;
+}
+  </style>
+  <body  data-barba="wrapper">
+
+    <div class="loader"></div>
+    <!-- content that stays the same on all pages - eg. header -->
+    <div id="intro" data-barba="container">
+        <!-- content that will change from page to page -->
+         <article class="opacity-transition">
+          <h1>Home</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <a href="index_barba.html">page 1</a>
+        </article>
+    </div>
+
+    <!-- define the wrapper and the container -->
+  
+
+        <script src="./jquery-3.6.0.js"></script>
+            <script src="https://unpkg.com/@barba/core"></script>
+    <script src="./gsap.min.js"></script>
+    <script src="./ScrollTrigger.min.js"></script>
+    <script src="./ScrollToPlugin.min.js"></script>
+
+
+    <!-- init barba with a simple opacity transition -->
+    <script src="main.js"></script>
+  </body>
+</html>

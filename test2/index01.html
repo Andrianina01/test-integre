@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+	<style type="text/css">
+	 nav{
+    width: 100%;
+    background-color: rgba(0,0,0,.5);
+   }
+   nav .container {
+    max-width: 1199px;
+    margin-right: auto;
+    margin-left: auto;
+    display: flex;
+   }
+   .logo{
+    display: inline-block;
+    padding-top: .3125rem;
+    padding-bottom: .3125rem;
+    margin-right: 1rem;
+    font-size: 1.25rem;
+    line-height: inherit;
+    white-space: nowrap;
+   }
+   .btn-col{
+    display: none;
+    float: right;
+   }
+   .btn-col span{
+    display: block;
+    width: 100px;
+    height: 2px;
+    background-color: #fff;
+    margin: 2px;
+   }
+   ul.nav-menu{
+    margin-left: auto;
+    padding: 0;
+   }
+   ul.nav-menu li{
+    display: inline-block;
+   }
+   ul.nav-menu li a{
+    display: block;
+    color: #fff;
+    margin:0 2px;
+    padding:0 10px;
+    text-decoration: none;
+   }
+   .collapse{
+    display: flex;
+   }
+   @media (max-width: 768px){
+    .collapse:not(.show){
+    display: none;
+   }
+   .btn-col{
+    display: block;
+   }
+   .collapse.show{
+    position: fixed;
+    width: 50%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background-color: rgba(0, 0, 0, .5);
+   }
+   ul.nav-menu li{
+    display:block;
+   }
+   }
+	</style>
+</head>
+<body>
+<nav>
+  <div class="container">
+      <a href="#" class="logo">logo</a>
+
+    <button class="btn-col">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <div class="collapse" id="collapse">
+      <ul class="nav-menu">
+        <li><a href="#">menu 1</a></li>
+        <li><a href="#">menu 2</a></li>
+        <li><a href="#">menu 3</a></li>
+        <li><a href="#">menu 4</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+  <div class="header">CSS-MASK BUTTON HOVER ANIMATION 
+    ( Experimental )</div>
+    <div class="button-container-1">
+      <span class="mas">MASK1</span>
+    <button id='work' type="button" name="Hover">MASK1</button>
+  </div>
+
+  <div class="button-container-2">
+    <span class="mas">MASK2</span>
+  <button type="button" name="Hover">MASK2</button>
+</div>
+
+<div class="button-container-3">
+  <span class="mas">MASK3</span>
+<button type="button" name="Hover">MASK3</button>
+</div>
+
+<div class="footer">Inspired by <a href="https://tympanus.net/codrops/2016/09/29/transition-effect-with-css-masks/">this</a> codrops article</div>
+
+<a href="#" class="btn-perso">test</a>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script>
+	$(document).ready(function(){
+
+    $('.btn-col').click(function() { 
+      /* Act on the event */
+      let event = true
+
+      if(event){
+
+$('#collapse').addClass('show');
+
+event = false
+
+      }else{
+
+        $('#collapse').removeClass('show');
+
+        event = true
+
+      }
+      
+    });
+	})
+	
+</script>
+</body>
+</html>

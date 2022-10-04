@@ -14,6 +14,21 @@
 .scrollDist{
 	position: absolute;
 }
+#load {
+  position: absolute;
+  overflow: hidden;
+  width: 100%;
+}
+#viewport {
+  overflow: hidden;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
 </style>
 <body>
 <!-- <div class="loader">
@@ -519,9 +534,48 @@ aucune place aux outrages malveillants.</p>
   AOS.init();
 
 </script>
+<script type="text/javascript">
+        jQuery(document).ready(function(){
+        	gsap.registerPlugin(ScrollTrigger);
+            var sContainer = document.querySelector("#load");
+            if (sContainer!==null) {
+
+                var sHeight;
+                function setHeight() {
+                    sHeight = sContainer.clientHeight;
+                    document.body.style.height = sHeight + "px";
+                }
+                ScrollTrigger.addEventListener("refreshInit", setHeight);
+                ScrollTrigger.addEventListener("scrollEnd", () => {
+                    let oldH = sHeight;
+                    setHeight();
+                    if(oldH !== sHeight){
+                        ScrollTrigger.refresh();
+                    }
+                });
+
+                // smooth scrolling container
+                gsap.to(sContainer, {
+                    y: () => -(sHeight - document.documentElement.clientHeight),
+                    ease: "none",
+                    scrollTrigger: {
+                        trigger: document.body,
+                        start: "top top",
+                        end: "bottom bottom",
+                        scrub: 2,
+                        ease: "expo.out",
+                        invalidateOnRefresh: true
+                    }
+                });
+
+            }
+        });
+
+        
+</script>
 <script>
     	$(document).ready(function(){
-    		smoothScroll("#load","#viewport", 2);
+    		/*smoothScroll("#load","#viewport", 2);*/
 /*let heightDoc = $(document).height() + 'px';
 gsap.set('.load', { position: 'fixed', background: '#fff', width: '100%', maxWidth: '100%', height: '100%', top: 0, left: '50%', x: '-50%' })
 gsap.set('.scrollDist', { width: '100%', height: '' })

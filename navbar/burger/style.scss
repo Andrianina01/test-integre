@@ -1,0 +1,358 @@
+@import "compass/css3";
+* {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    font-family: arial;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    font-family: arial;
+}
+
+section {
+    height: 300px;
+    padding-top: 100px;
+    float: left;
+    width: 50%;
+    position: relative;
+}
+
+
+/*==============++++================*/
+
+$prim: #0089B6;
+$scnd: #00B69A;
+.menu {
+    height: 100px;
+    width: 100px;
+    position: relative;
+    margin: auto;
+    padding-top: 20px;
+    border: 5px solid transparent;
+    @include border-radius(100%);
+    @include transition(.3s);
+    cursor: pointer;
+}
+
+.bar {
+    height: 5px;
+    width: 70px;
+    display: block;
+    margin: 10px auto;
+    position: relative;
+    background-color: #fff;
+    @include border-radius(10px);
+    @include transition(.4s);
+}
+
+.model-1 {
+    background-color: #663399;
+    .bar {
+        position: absolute;
+        &:nth-of-type(1) {
+            top: 15px;
+            @include transition( top 0.3s ease .3s, transform .3s ease-out .1s);
+            @include animation(mrotr 2s cubic-bezier(.5, .2, .2, 1.01));
+        }
+        &:nth-of-type(2) {
+            top: 30px;
+            @include transition(0.3s ease .3s);
+            @include animation(fade 2s cubic-bezier(.5, .2, .2, 1.01));
+        }
+        &:nth-of-type(3) {
+            top: 45px;
+            @include transition( top 0.3s ease .3s, transform .3s ease-out .1s);
+            @include animation(mrotl 2s cubic-bezier(.5, .2, .2, 1.01));
+        }
+    }
+    .menu:hover {
+        .bar {
+            &:nth-of-type(1) {
+                top: 30px;
+                @include rotate(45deg);
+                @include transition( top 0.3s ease .1s, transform .3s ease-out .5s);
+            }
+            &:nth-of-type(2) {
+                opacity: 0;
+            }
+            &:nth-of-type(3) {
+                top: 30px;
+                @include rotate(-45deg);
+                @include transition( top 0.3s ease .1s, transform .3s ease-out .5s);
+            }
+        }
+    }
+}
+
+.model-2 {
+    background-color: #FF7A04;
+    .menu:hover {
+        .bar {
+            &:nth-of-type(1) {
+                @include transform(translateY(15px) rotate(45deg));
+            }
+            &:nth-of-type(2) {
+                opacity: 0;
+            }
+            &:nth-of-type(3) {
+                @include transform(translateY(-15px) rotate(-45deg));
+            }
+        }
+    }
+    .bar {
+        &:nth-of-type(1) {
+            @include animation(rotateR 1.5s cubic-bezier(.5, .2, .2, 1));
+        }
+        &:nth-of-type(2) {
+            @include animation(fade 1.5s cubic-bezier(.1, .8, .1, 1));
+        }
+        &:nth-of-type(3) {
+            @include animation(rotateL 1.5s cubic-bezier(.5, .2, .2, 1));
+        }
+    }
+}
+
+.model-3 {
+    background-color: #31AA39;
+    .bar {
+        position: absolute;
+        &:nth-of-type(1) {
+            top: 15px;
+            @include transition( top 0.3s ease .3s, transform .3s ease-out .1s);
+            @include animation(mrotr 2s cubic-bezier(.5, .2, .2, 1.01) alternate);
+        }
+        &:nth-of-type(2) {
+            top: 30px;
+            z-index: 2;
+        }
+        &:nth-of-type(3) {
+            top: 45px;
+            @include transition( top 0.3s ease .3s, transform .3s ease-out .1s);
+            @include animation(mrotl 2s cubic-bezier(.5, .2, .2, 1.01) alternate);
+        }
+    }
+    .menu {
+        &:after {
+            content: '';
+            width: 100%;
+            height: 30px;
+            left: -10px;
+            top: -10px;
+            position: absolute;
+            background-color: #31AA39;
+            @include transition(top .3s ease .2s);
+            @include animation(moveUp 2s alternate);
+        }
+        &:hover {
+            &:after {
+                top: 10px;
+            }
+            .bar {
+                &:nth-of-type(1) {
+                    top: 30px;
+                    @include rotate(45deg);
+                    @include transition( top 0.3s ease .1s, transform .3s ease-out .5s);
+                }
+                &:nth-of-type(3) {
+                    top: 30px;
+                    @include rotate(-45deg);
+                    @include transition( top 0.3s ease .1s, transform .3s ease-out .5s);
+                }
+            }
+        }
+    }
+}
+
+.model-4 {
+    background-color: #2E64FF;
+    .menu {
+        border-color: #fff;
+        @include border-radius(100%);
+        &:hover {
+            .bar {
+                top: 10px;
+                &:nth-of-type(2) {
+                    @include rotate(225deg);
+                    transform-origin: 75% 105% 0;
+                }
+            }
+        }
+    }
+    .bar {
+        height: 35px;
+        width: 35px;
+        background: none;
+        border-bottom: 8px solid #fff;
+        border-right: 8px solid #fff;
+        position: absolute;
+        @include border-radius(0);
+        @include rotate(45deg);
+        margin: auto;
+        top: 20px;
+        right: 0;
+        left: 0;
+        &:nth-of-type(3) {
+            display: none;
+        }
+    }
+}
+
+.model-5 {
+    background-color: #F2276C;
+    .bar {
+        position: absolute;
+        &:nth-of-type(1) {
+            top: 15px;
+            @include transition( top .3s ease .3s, transform .3s ease-out .1s);
+        }
+        &:nth-of-type(2) {
+            top: 30px;
+            @include transition(.3s ease .3s);
+        }
+        &:nth-of-type(3) {
+            top: 45px;
+            @include transition( top .3s ease .3s, transform .3s ease-out .1s);
+        }
+    }
+    .menu:hover {
+        @include transition( transform .3s ease .5s);
+        @include rotate(45deg);
+        .bar {
+            &:nth-of-type(1) {
+                top: 30px;
+                @include rotate(0deg);
+                @include transition( top 0.3s ease .1s, transform .3s ease-out .5s);
+            }
+            &:nth-of-type(2) {
+                opacity: 0;
+            }
+            &:nth-of-type(3) {
+                top: 30px;
+                @include rotate(90deg);
+                @include transition( top .3s ease .1s, transform .3s ease-out .7s);
+            }
+        }
+    }
+}
+
+.model-6 {
+    background-color: #EEBA1A;
+    .menu {
+        overflow: hidden;
+        &:after {
+            content: '';
+            width: 90%;
+            height: 90%;
+            left: 0;
+            top: 0;
+            position: absolute;
+            border: 5px solid transparent;
+            @include border-radius(100%);
+        }
+        &:hover {
+            &:after {
+                @include animation(circle-creation 1s forwards);
+            }
+            .bar {
+                &:nth-of-type(1) {
+                    @include transform(translateY(15px) rotate(45deg));
+                }
+                &:nth-of-type(2) {
+                    @include translateX(100px);
+                    @include transition(.6s);
+                }
+                &:nth-of-type(3) {
+                    @include transform(translateY(-15px) rotate(-45deg));
+                }
+            }
+        }
+    }
+}
+
+
+/*============= Demo  Animation  ================*/
+
+@include keyframes(mrotr) {
+    0% {
+        @include transform(translateY(0px) rotate(0))
+    }
+    50% {
+        @include transform(translateY(15px) rotate(0))
+    }
+    100% {
+        @include transform(translateY(15px) rotate(45deg))
+    }
+}
+
+@include keyframes(mrotl) {
+    0% {
+        @include transform(translateY(0px) rotate(0))
+    }
+    50% {
+        @include transform(translateY(-15px) rotate(0))
+    }
+    100% {
+        @include transform(translateY(-15px) rotate(-45deg))
+    }
+}
+
+@include keyframes(rotateR) {
+    from {
+        @include transform(translateY(0px) rotate(0))
+    }
+    to {
+        @include transform(translateY(15px) rotate(45deg))
+    }
+}
+
+@include keyframes(rotateL) {
+    from {
+        @include transform(translateY(0px) rotate(0))
+    }
+    to {
+        @include transform(translateY(-15px) rotate(-45deg))
+    }
+}
+
+@include keyframes(circle-creation) {
+    0% {
+        border-color: transparent;
+        @include rotate(0deg);
+    }
+    25% {
+        border-color: transparent #fff transparent transparent;
+        @include rotate(-35deg);
+    }
+    50% {
+        border-color: transparent #fff #fff transparent;
+    }
+    75% {
+        border-color: transparent #fff #fff #fff;
+    }
+    100% {
+        border-color: #fff;
+        @include rotate(-300deg)
+    }
+}
+
+@include keyframes(moveUp) {
+    from {
+        @include translateY(0);
+    }
+    to {
+        @include translateY(25px)
+    }
+}
+
+@include keyframes(fade) {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}

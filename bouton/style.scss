@@ -1,0 +1,797 @@
+body {
+    margin: 0 auto
+}
+
+
+/*1<*/
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    height: 100%;
+    background: #006b62;
+    position: relative;
+}
+
+.btn {
+    cursor: pointer;
+    background-color: #000;
+    width: 330px;
+    height: 64px;
+    line-height: 64px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+    box-shadow: 0px 0px 17px 1px rgba(0, 0, 0, 0.34);
+    span {
+        color: #fff;
+        display: block;
+        padding-left: 35px;
+        text-transform: uppercase;
+        font: bold 18px/66px Arial;
+        transform: scaleX(0.6);
+        letter-spacing: 3px;
+        transform-origin: center left;
+        transition: color 0.3s ease;
+        position: relative;
+        z-index: 1;
+    }
+    em {
+        position: absolute;
+        height: 1px;
+        background: #fff;
+        width: 47%;
+        right: 23px;
+        top: 50%;
+        transform: scaleX(0.25);
+        transform-origin: center right;
+        transition: all 0.3s ease;
+        z-index: 1;
+    }
+    &:before,
+    &:after {
+        content: '';
+        background: #fff;
+        height: 50%;
+        width: 0;
+        position: absolute;
+        transition: .3s cubic-bezier(.785, .135, .15, .86);
+    }
+    &:before {
+        top: 0;
+        left: 0;
+        right: auto;
+    }
+    &:after {
+        bottom: 0;
+        right: 0;
+        left: auto;
+    }
+    &:hover {
+        &:before {
+            width: 100%;
+            right: 0;
+            left: auto;
+        }
+        &:after {
+            width: 100%;
+            left: 0;
+            right: auto;
+        }
+        span {
+            color: #000;
+        }
+        em {
+            background: #000;
+            transform: scaleX(1);
+        }
+    }
+}
+
+
+/*2*/
+
+// this code is such a mess right now ! If you look at it, your eyes will bleed.
+@import 'https://fonts.googleapis.com/css?family=Space+Mono';
+html,
+body {
+    width: 100vw;
+    height: 100vh;
+    background: #151515;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+button {
+    font-family: 'Space Mono', monospace;
+    letter-spacing: 1px;
+    background: none;
+    color: white;
+    position: relative;
+    outline: none;
+    border: none;
+    height: 50px;
+    width: 190px;
+    font-size: 14px;
+    z-index: 2;
+    transition: .01s .23s ease-out all;
+    overflow: hidden;
+    &:before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 55%;
+        background: #202020;
+        z-index: -1;
+        transition: .3s ease-in all;
+    }
+    &:after {
+        content: '';
+        position: absolute;
+        left: -5%;
+        top: 5%;
+        height: 90%;
+        width: 5%;
+        background: white;
+        z-index: -1;
+        transition: .4s .02s ease-in all;
+    }
+    &:hover {
+        cursor: pointer;
+        color: transparent;
+        &:before {
+            left: 100%;
+            width: 25%;
+        }
+        &:after {
+            left: 100%;
+            width: 70%;
+        }
+        .icon-right.after:after {
+            left: -80px;
+            color: white;
+            transition: .2s .2s ease all;
+        }
+        .icon-right.after:before {
+            left: -104px;
+            top: 14px;
+            opacity: 0.2;
+            color: white;
+        }
+    }
+}
+
+.icon-right {
+    position: absolute;
+    top: 0;
+    right: 0;
+    &:after {
+        font-family: "FontAwesome";
+        content: '\2192';
+        font-size: 24px;
+        display: inline-block;
+        position: relative;
+        top: 26px;
+        transform: translate3D(0, -50%, 0);
+    }
+    &.after:after {
+        left: -250px;
+        color: black;
+        transition: .15s .25s ease left, .5s .05s ease color;
+    }
+    &.after:before {
+        content: 'Explore';
+        position: absolute;
+        left: -230px;
+        top: 14px;
+        opacity: 0;
+        transition: .2s ease-in all;
+    }
+}
+
+.signature {
+    position: fixed;
+    font-family: sans-serif;
+    font-weight: 100;
+    bottom: 10px;
+    left: 0;
+    letter-spacing: 4px;
+    font-size: 10px;
+    width: 100vw;
+    text-align: center;
+    color: white;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+
+/*3>*/
+
+
+/* ~~~~~~~ INIT. BTN ~~~~~~~ */
+
+.btn {
+    position: relative;
+    padding: 1.4rem 4.2rem;
+    padding-right: 3.1rem;
+    font-size: 1.4rem;
+    color: var(--inv);
+    letter-spacing: 1.1rem;
+    text-transform: uppercase;
+    transition: all 500ms cubic-bezier(0.77, 0, 0.175, 1);
+    cursor: pointer;
+    user-select: none;
+}
+
+.btn:before,
+.btn:after {
+    content: '';
+    position: absolute;
+    transition: inherit;
+    z-index: -1;
+}
+
+.btn:hover {
+    color: var(--def);
+    transition-delay: .5s;
+}
+
+.btn:hover:before {
+    transition-delay: 0s;
+}
+
+.btn:hover:after {
+    background: var(--inv);
+    transition-delay: .35s;
+}
+
+
+/* From Top */
+
+.from-top:before,
+.from-top:after {
+    left: 0;
+    height: 0;
+    width: 100%;
+}
+
+.from-top:before {
+    bottom: 0;
+    border: 1px solid var(--inv);
+    border-top: 0;
+    border-bottom: 0;
+}
+
+.from-top:after {
+    top: 0;
+    height: 0;
+}
+
+.from-top:hover:before,
+.from-top:hover:after {
+    height: 100%;
+}
+
+
+/* From Left */
+
+.from-left:before,
+.from-left:after {
+    top: 0;
+    width: 0;
+    height: 100%;
+}
+
+.from-left:before {
+    right: 0;
+    border: 1px solid var(--inv);
+    border-left: 0;
+    border-right: 0;
+}
+
+.from-left:after {
+    left: 0;
+}
+
+.from-left:hover:before,
+.from-left:hover:after {
+    width: 100%;
+}
+
+
+/* From Right */
+
+.from-right:before,
+.from-right:after {
+    top: 0;
+    width: 0;
+    height: 100%;
+}
+
+.from-right:before {
+    left: 0;
+    border: 1px solid var(--inv);
+    border-left: 0;
+    border-right: 0;
+}
+
+.from-right:after {
+    right: 0;
+}
+
+.from-right:hover:before,
+.from-right:hover:after {
+    width: 100%;
+}
+
+
+/* From center */
+
+.from-center:before {
+    top: 0;
+    left: 50%;
+    height: 100%;
+    width: 0;
+    border: 1px solid var(--inv);
+    border-left: 0;
+    border-right: 0;
+}
+
+.from-center:after {
+    bottom: 0;
+    left: 0;
+    height: 0;
+    width: 100%;
+    background: var(--inv);
+}
+
+.from-center:hover:before {
+    left: 0;
+    width: 100%;
+}
+
+.from-center:hover:after {
+    top: 0;
+    height: 100%;
+}
+
+
+/* From Bottom */
+
+.from-bottom:before,
+.from-bottom:after {
+    left: 0;
+    height: 0;
+    width: 100%;
+}
+
+.from-bottom:before {
+    top: 0;
+    border: 1px solid var(--inv);
+    border-top: 0;
+    border-bottom: 0;
+}
+
+.from-bottom:after {
+    bottom: 0;
+    height: 0;
+}
+
+.from-bottom:hover:before,
+.from-bottom:hover:after {
+    height: 100%;
+}
+
+
+/* ~~~~~~~~~~~~ GLOBAL SETTINGS ~~~~~~~~~~~~ */
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+body {
+    --def: #96B7C4;
+    --inv: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    width: 100%;
+    background-image: linear-gradient(-25deg, #616161 0%, #96B7C4 100%);
+}
+
+html {
+    font-size: 12px;
+    font-family: 'Playfair Display', serif;
+}
+
+div {
+    margin-bottom: 3rem;
+}
+
+div:last-child {
+    margin-bottom: 0;
+}
+
+
+/*4*/
+
+body,
+html {
+    height: 100%;
+}
+
+body {
+    font-family: "Lato", sans-serif;
+    color: #111;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    background-color: #ECECEC;
+}
+
+.container {
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    //border: 2px solid black;
+}
+
+.btn {
+    margin: 20px auto;
+    border: none;
+    padding: 10px 44px;
+    font-size: 36px;
+    position: relative;
+    &::before {
+        transition: all 0.85s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        content: '';
+        width: 50%;
+        height: 100%;
+        background: black;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    & .btn-text {
+        color: white;
+        // check out mdn docs for different types of blend modes. 
+        mix-blend-mode: difference;
+    }
+    &:hover {
+        &::before {
+            background: black;
+            width: 100%;
+        }
+    }
+    //rounded btn styles
+    &.rounded {
+        border-radius: 50px;
+        & .text-green {
+            color: #00F0B5;
+            mix-blend-mode: difference;
+        }
+        &::before {
+            border-radius: 50px;
+            width: 25%;
+            background: #00F0B5;
+        }
+        &:hover {
+            &::before {
+                background: #00F0B5;
+                width: 100%;
+            }
+        }
+    }
+}
+
+
+/*5*/
+
+//Lato font
+@import url('https://fonts.googleapis.com/css?family=Lato:400,700');
+//color/ui color variables
+$white: #ececec;
+$black: #333333;
+$yellow: #ffff00;
+$purple: #8a19ff;
+$colorPrimary: $yellow;
+$colorSecondary: $purple;
+//split button mixin
+@mixin btn__split($colorLeft,
+$colorRight,
+$textColor) {
+    .btn {
+        position: relative;
+        letter-spacing: 0.25em;
+        margin: 0 auto;
+        padding: 1rem 2.5rem;
+        background: transparent;
+        outline: none;
+        font-size: 28px;
+        color: $textColor;
+        &::after,
+        &::before {
+            content: "";
+            position: absolute;
+            height: 100%;
+            width: 50%;
+            transform: skewX(30deg);
+            transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            z-index: -2;
+        }
+        &::before {
+            background-color: $colorLeft;
+            top: -1rem;
+            left: 0rem;
+        }
+        &::after {
+            background-color: $colorRight;
+            top: 1rem;
+            left: 8rem;
+        }
+        &:hover {
+            &::before,
+            &::after {
+                top: 0;
+                transform: skewx(0deg);
+            }
+            &::after {
+                left: 0rem;
+            }
+            &::before {
+                left: 8.75rem;
+            }
+        }
+    }
+}
+
+body,
+html {
+    height: 100%;
+}
+
+body {
+    font-family: "Lato", sans-serif;
+    color: $black;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+}
+
+.container {
+    width: auto;
+    margin: auto;
+}
+
+a {
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+@include btn__split($colorPrimary,
+$colorSecondary,
+$black);
+
+/*6*/
+
+
+/*
+  https://developer.mozilla.org/en/docs/Web/CSS/box-shadow
+  box-shadow: [inset?] [top] [left] [blur] [size] [color];
+
+  Tips:
+    - We're setting all the blurs to 0 since we want a solid fill.
+    - Add the inset keyword so the box-shadow is on the inside of the element
+    - Animating the inset shadow on hover looks like the element is filling in from whatever side you specify ([top] and [left] accept negative values to become [bottom] and [right])
+    - Multiple shadows can be stacked
+    - If you're animating multiple shadows, be sure to keep the same number of shadows on hover/focus as non-hover/focus (even if you have to create a transparent shadow) so the animation is smooth. Otherwise, you'll get something choppy.
+*/
+
+// Animate the size, inside
+.fill:hover,
+.fill:focus {
+    box-shadow: inset 0 0 0 2em var(--hover);
+}
+
+// Animate the size, outside
+.pulse:hover,
+.pulse:focus {
+    animation: pulse 1s;
+    box-shadow: 0 0 0 2em transparent;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 var(--hover);
+    }
+}
+
+// Stack multiple shadows, one from the left, the other from the right
+.close:hover,
+.close:focus {
+    box-shadow: inset -3.5em 0 0 0 var(--hover), inset 3.5em 0 0 0 var(--hover);
+}
+
+// Size can also be negative; see how it's smaller than the element
+.raise:hover,
+.raise:focus {
+    box-shadow: 0 0.5em 0.5em -0.4em var(--hover);
+    transform: translateY(-0.25em);
+}
+
+// Animating from the bottom
+.up:hover,
+.up:focus {
+    box-shadow: inset 0 -3.25em 0 0 var(--hover);
+}
+
+// And from the left
+.slide:hover,
+.slide:focus {
+    box-shadow: inset 6.5em 0 0 0 var(--hover);
+}
+
+// Multiple shadows, one on the outside, another on the inside
+.offset {
+    box-shadow: 0.3em 0.3em 0 0 var(--color), inset 0.3em 0.3em 0 0 var(--color);
+    &:hover,
+    &:focus {
+        box-shadow: 0 0 0 0 var(--hover), inset 6em 3.5em 0 0 var(--hover);
+    }
+}
+
+//=== Set button colors
+// If you wonder why use Sass vars or CSS custom properties...
+// Make a map with the class names and matching colors
+$colors: ( fill: #a972cb,
+pulse: #ef6eae,
+close: #ff7f82,
+raise: #ffa260,
+up: #e4cb58,
+slide: #8fc866,
+offset: #19bc8b);
+// Sass variables compile to a static string; CSS variables are dynamic and inherited
+// Loop through the map and set CSS custom properties using Sass variables
+@each $button,
+$color in $colors {
+    .#{$button} {
+        --color: #{$color};
+        --hover: #{adjust-hue($color, 45deg)};
+    }
+}
+
+// Now every button will have different colors as set above. We get to use the same structure, only changing the custom properties.
+button {
+    color: var(--color);
+    transition: 0.25s;
+    &:hover,
+    &:focus {
+        border-color: var(--hover);
+        color: #fff;
+    }
+}
+
+//=== Pen styling, ignore
+body {
+    color: #fff;
+    background: hsl(227, 10%, 10%);
+    font: 300 1em 'Fira Sans', sans-serif;
+    // Center everything ever
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 100vh;
+    display: flex;
+}
+
+// Basic button styles
+button {
+    background: none;
+    border: 2px solid;
+    font: inherit;
+    line-height: 1;
+    margin: 0.5em;
+    padding: 1em 2em;
+}
+
+h1 {
+    font-weight: 400;
+}
+
+code {
+    color: #e4cb58;
+    font: inherit;
+}
+
+
+/*7*/
+
+body {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient( rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), black url('https://images.unsplash.com/photo-1439723680580-bfd9d28ef9b6?crop=entropy&fit=crop&fm=jpg&h=950&ixjsv=2.1.0&ixlib=rb-0.3.5&q=80&w=1925') 50% 50% no-repeat;
+    background: linear-gradient( rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), rgba(220, 220, 220, 1) url('https://images.unsplash.com/photo-1449157291145-7efd050a4d0e?crop=entropy&fit=crop&fm=jpg&h=950&ixjsv=2.1.0&ixlib=rb-0.3.5&q=80&w=1925') 50% 50% no-repeat;
+    //background-blend-mode: exclusion;
+    background-blend-mode: luminosity;
+}
+
+.container {
+    height: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.btn {
+    margin-top: calc(50% + 25px);
+    position: relative;
+    display: inline-block;
+    width: 277px;
+    height: 50px;
+    font-size: 1em;
+    font-weight: bold;
+    line-height: 60px;
+    text-align: center;
+    text-transform: uppercase;
+    background-color: transparent;
+    cursor: pointer;
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 900;
+    font-size: 17px;
+    letter-spacing: 0.045em;
+}
+
+.btn svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.btn svg rect {
+    //stroke: #EC0033;
+    stroke-width: 4;
+    stroke-dasharray: 353, 0;
+    stroke-dashoffset: 0;
+    -webkit-transition: all 600ms ease;
+    transition: all 600ms ease;
+}
+
+.btn span {
+    background: rgb(255, 130, 130);
+    background: -moz-linear-gradient(left, rgba(255, 130, 130, 1) 0%, rgba(225, 120, 237, 1) 100%);
+    background: -webkit-linear-gradient(left, rgba(255, 130, 130, 1) 0%, rgba(225, 120, 237, 1) 100%);
+    background: linear-gradient(to right, rgba(255, 130, 130, 1) 0%, rgba(225, 120, 237, 1) 100%);
+    //filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#ff8282', endColorstr='#e178ed', GradientType=1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.btn:hover svg rect {
+    stroke-width: 4;
+    stroke-dasharray: 196, 543;
+    stroke-dashoffset: 437;
+}
